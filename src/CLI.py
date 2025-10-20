@@ -6,6 +6,7 @@ import sys
 import click
 from calculator import add, subtract, multiply, divide, power, square_root
 
+
 @click.command()
 @click.argument('operation')
 @click.argument('num1', type=float)
@@ -19,12 +20,16 @@ def calculate(operation, num1, num2=None):
             result = add(num1, num2)
         elif operation == 'subtract':
             result = subtract(num1, num2)
-        elif operation == "multiply":
+        elif operation == 'multiply':
             result = multiply(num1, num2)
-        elif operation == "divide":
+        elif operation == 'divide':
             result = divide(num1, num2)
+        elif operation == 'power':
+            result = power(num1, num2)
+        elif operation == 'sqrt':
+            result = square_root(num1)
         else:
-            click.echo(f"Unknown operation: {operation}") 
+            click.echo(f"Unknown operation: {operation}")
             sys.exit(1)
 
         # Format result nicely
